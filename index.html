@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="Samhitha Kondeti — MSCS at Texas A&M, quantum ML and NLP researcher." />
+  <title>Samhitha Kondeti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- ═══ ICON SPRITE: radiant Iron Man / Spider-Man split mask ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="mask-glow" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#ffe27a"/>
+      <stop offset="58%" stop-color="#ffb347"/>
+      <stop offset="100%" stop-color="#e8932e"/>
+    </radialGradient>
+    <linearGradient id="mask-iron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd95e"/>
+      <stop offset="55%" stop-color="#e8a52f"/>
+      <stop offset="100%" stop-color="#c47d1c"/>
+    </linearGradient>
+    <linearGradient id="mask-spider" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff5b4a"/>
+      <stop offset="55%" stop-color="#d8362a"/>
+      <stop offset="100%" stop-color="#a8231c"/>
+    </linearGradient>
+    <filter id="mask-radiance" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <symbol id="ico-mask" viewBox="0 0 36 36">
+      <g filter="url(#mask-radiance)">
+        <!-- radiant halo -->
+        <circle cx="18" cy="17.5" r="15.5" fill="url(#mask-glow)" opacity="0.30"/>
+        <circle cx="18" cy="17.5" r="11.5" fill="url(#mask-glow)" opacity="0.22"/>
+        <!-- head silhouette: two halves -->
+        <path d="M18 3.2C24.8 3.2 29.4 8.6 29.4 16.4C29.4 24.6 24.2 32.8 18 32.8Z" fill="url(#mask-spider)"/>
+        <path d="M18 3.2C11.2 3.2 6.6 8.6 6.6 16.4C6.6 24.6 11.8 32.8 18 32.8Z" fill="url(#mask-iron)"/>
+        <!-- Iron Man faceplate panels -->
+        <path d="M7.4 12.6C9.6 9.4 13.4 8.2 17.3 9.3L17.3 12.1C14.0 11.1 10.6 11.9 8.5 14.6Z" fill="#fff1c4" opacity="0.9"/>
+        <path d="M9.2 24.6C11.0 27.0 13.8 28.6 17.3 29.0L17.3 26.4C14.6 26.0 12.3 24.6 10.9 22.6Z" fill="#b9781a" opacity="0.85"/>
+        <!-- Spider-Man web -->
+        <g stroke="#fff4ec" stroke-width="0.7" fill="none" opacity="0.8" stroke-linecap="round">
+          <path d="M19.6 5.4Q25.4 8.6 27.8 14.2"/>
+          <path d="M28.6 19.4Q24.4 22.6 19.8 27.0"/>
+          <path d="M19.2 9.5Q23.4 12.0 25.0 16.6"/>
+          <path d="M19.2 16.4H27.2"/>
+          <path d="M19.4 23.0Q23.0 21.6 25.4 19.0"/>
+        </g>
+        <!-- Iron Man eye, glowing -->
+        <path d="M9.4 16.8L15.0 14.5L15.0 17.4L9.4 19.0Z" fill="#ffffff"/>
+        <path d="M9.4 16.8L15.0 14.5L15.0 17.4L9.4 19.0Z" fill="#bfe4ff" opacity="0.55"/>
+        <!-- Spider-Man eye -->
+        <path d="M20.4 13.6C24.4 12.4 27.4 14.4 26.6 18.0C26.0 21.0 22.6 21.4 20.8 19.4C19.5 17.6 19.3 14.8 20.4 13.6Z" fill="#ffffff" stroke="#1b1b18" stroke-width="0.7"/>
+        <!-- glowing seam -->
+        <line x1="18" y1="3.2" x2="18" y2="32.8" stroke="#fff7d6" stroke-width="1" opacity="0.85"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+  <!-- ═══════════ MOBILE BAR ═══════════ -->
+  <div class="mobile-bar">
+    <div class="mobile-name">Samhitha Kondeti</div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+  </div>
+
+  <!-- ═══════════ SIDEBAR ═══════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="profile">
+        <div class="photo-wrap" id="hero-photo-frame">
+          <img src="Sam'pic.png" alt="Samhitha Kondeti"
+            style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+          <input type="file" id="hero-photo-input" accept="image/*" style="display:none" />
+        </div>
+        <h1 class="profile-name">Samhitha Kondeti</h1>
+        <p class="profile-title">MSCS · Texas A&amp;M University</p>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-item"><span class="cl">Email</span><a href="mailto:samk_13@tamu.edu">samk_13@tamu.edu</a>
+        </div>
+        <div class="contact-item"><span class="cl">Location</span><span>College Station, USA</span></div>
+      </div>
+
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/samhitha-kondeti/" class="icon-link" title="LinkedIn"
+          aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a href="https://github.com/Freakelle" class="icon-link" title="GitHub" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/samhithak_13?igsh=MWM5bzFscnd1d3l0aA==" class="icon-link" title="Instagram"
+          aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" />
+            <circle cx="12" cy="12" r="4.5" />
+            <circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+        <a href="https://x.com/sweety_CSnews13" class="icon-link" title="X / Twitter" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.9 1.6h3.7l-8.1 9.2L24 22.4h-7.4l-5.8-7.6-6.6 7.6H.5l8.6-9.9L0 1.6h7.6l5.2 6.9zm-1.3 18.6h2L6.5 3.7H4.3z" />
+          </svg>
+        </a>
+        <a href="https://orcid.org/my-orcid?orcid=0009-0003-7549-1035" class="icon-link" title="ORCID"
+          aria-label="ORCID">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2a10 10 0 100 20 10 10 0 000-20zM8.2 16.9H6.6V8.5h1.6v8.4zM7.4 7.4a1 1 0 110-2 1 1 0 010 2zm9.7 7.2c-.7.8-1.8 1.2-3.2 1.2h-3V8.5h3c1.4 0 2.5.4 3.2 1.2.7.8 1.1 1.8 1.1 3.1s-.4 2.3-1.1 3zm-1.3-5c-.5-.5-1.2-.7-2.1-.7h-1.2v6.1h1.2c1 0 1.7-.3 2.2-.8.4-.5.7-1.2.7-2.3 0-1-.3-1.8-.8-2.3z" />
+          </svg>
+        </a>
+      </div>
+
+      <a href="SamhithaResume_26.pdf" target="_blank" class="resume-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+        </svg>
+        Résumé / CV
+      </a>
+
+      <div class="sidebar-sep"></div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-tab="about">About</button>
+        <button class="nav-btn" data-tab="work">Work</button>
+        <button class="nav-btn" data-tab="blog">Blog</button>
+        <button class="nav-btn" data-tab="personal">Personal</button>
+        <button class="nav-btn" data-tab="contact">Contact</button>
+      </nav>
+
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light / dark mode">
+        <span class="tt-track">
+          <span class="tt-ico tt-sun">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+            </svg>
+          </span>
+          <span class="tt-ico tt-moon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+          </span>
+          <span class="tt-knob"></span>
+        </span>
+        <span class="tt-label" id="tt-label">Dark</span>
+      </button>
+
+      <div class="sidebar-footer">
+        <svg class="footer-bolt" viewBox="0 0 24 24">
+          <path d="M13 2 L4 14 H10 L8 22 L18 9 H12 Z" />
+        </svg>
+        © 2026 Samhitha Kondeti
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════ CONTENT ═══════════ -->
+  <main class="content" id="content">
+
+    <!-- ─────────── ABOUT ─────────── -->
+    <div class="tab-panel active" id="tab-about">
+
+      <div class="hero">
+        <div class="starfield" id="starfield" aria-hidden="true"></div>
+        <div class="hero-text">
+          <h2 class="hero-name">
+            <span class="hero-intro">I'm</span>
+            <span class="hero-main">Samhitha Kondeti</span>
+          </h2>
+          <p class="hero-tag">A <strong>Quantum ML &amp; NLP researcher</strong> at Texas A&amp;M University.</p>
+          <pre class="code-block"><span class="kw">let</span> focus    = [<span class="str">'quantum ML'</span>, <span class="str">'NLP'</span>, <span class="str">'CyberSecurity'</span>],
+    tools    = [<span class="str">'PyTorch'</span>, <span class="str">'Qiskit'</span>, <span class="str">'LangChain'</span>],
+    offDuty  = [<span class="str">'cooking'</span>, <span class="str">'choir'</span>, <span class="str">'sketching'</span>],
+    skillset = focus.<span class="fn">concat</span>(tools, offDuty)</pre>
+          <p class="hero-links">Browse my <a href="#" data-goto="work">research</a>, read the <a href="#"
+              data-goto="blog">blog</a>, or <a href="#" data-goto="contact">get in touch</a>.</p>
+        </div>
+        <div class="hero-side">
+          <figure class="hero-poster">
+            <img src="gpt2.png" alt="Samhitha Kondeti — quantum themed Let's Cook poster"/>
+          </figure>
+        </div>
+      </div>
+
+
+      <section class="panel-sec">
+        <div class="sec-head"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h3 class="ptitle">About</h3>
+        </div>
+        <p>I'm a Master of Science in Computer Science student at <strong>Texas A&amp;M University</strong>, working where
+          quantum computing, machine learning, and language models meet. My research spans automated conjecture generation
+          for quantum circuits, empirical studies of LLM reasoning, and quantum optimization.</p>
+        <p>Before TAMU, I built deep learning models for Hardware Trojan detectionat <strong>NIT Durgapur</strong>, led
+          sponsorships for the ISTE chapter, and represented a cohort of 190+ students. Outside research, I sing with
+          the university choir, cook, and sketch.</p>
+      </section>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Education</h4>
+        </div>
+        <div class="two-col">
+          <div class="ie">
+            <div class="ie-school">Texas A&amp;M University</div>
+            <div class="ie-deg">M.S. Computer Science · GPA 4.0/4.0</div>
+            <div class="ie-note">Aug 2025 – May 2027 · College Station, TX</div>
+          </div>
+          <div class="ie">
+            <div class="ie-school">NIT Durgapur</div>
+            <div class="ie-deg">B.Tech Computer Science · GPA 8.65/10</div>
+            <div class="ie-note">Dec 2020 – May 2024 · Durgapur, India</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Skills</h4>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Languages</div>
+          <div class="tag-row">
+            <span class="tag">C / C++</span><span class="tag">Java</span><span class="tag">Python</span><span
+              class="tag">Rust</span>
+            <span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Lean</span><span
+              class="tag">LaTeX</span>
+            <span class="tag">HTML / CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">ML Frameworks &amp; Tools</div>
+          <div class="tag-row">
+            <span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">LangChain</span>
+            <span class="tag">Qiskit</span><span class="tag">React Native</span><span class="tag">Jupyter</span>
+            <span class="tag">Git / GitHub</span><span class="tag">AWS</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Interests</h4>
+        </div>
+        <div class="tag-row">
+          <span class="tag">University Choir &amp; Performance</span><span class="tag">Yoga &amp; Wellness</span>
+          <span class="tag">Sudoku &amp; Logic Puzzles</span><span class="tag">Japanese</span><span
+            class="tag">Cooking</span>
+          <span class="tag">Star Wars</span><span class="tag">Klingon</span>
+        </div>
+      </section>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Research Experience</h4>
+        </div>
+        <div class="res-list">
+          <div class="res-card">
+            <div class="res-lab">Klappenecker Lab · Texas A&amp;M University</div>
+            <div class="res-role">Researcher · Advisor: Prof. Andreas Klappenecker</div>
+            <div class="res-date">Mar 2026 – Present · College Station, TX</div>
+            <p class="res-desc">Investigating optimal decomposition of controlled unitary gates using automated
+              conjecture tool (TxGraffiti) to surface mathematical relationships between quantum circuit structure and
+              graph invariants. Verified counterexample detection on real circuits.</p>
+          </div>
+          <div class="res-card">
+            <div class="res-lab">Cai Lab · Texas A&amp;M University</div>
+            <div class="res-role">Researcher · Advisor: Prof. James Cai</div>
+            <div class="res-date">Ongoing 2026 · College Station, TX</div>
+            <p class="res-desc">Building a conversational AI agent that makes single-cell gene expression analysis
+              (SCGEATool) accessible through natural language, lowering the barrier for biologists to run complex
+              bioinformatics workflows using LLM reasoning.</p>
+          </div>
+          <div class="res-card">
+            <div class="res-lab">Roy Lab · NIT Durgapur</div>
+            <div class="res-role">Research Assistant · Advisor: Prof. Suchismita Roy</div>
+            <div class="res-date">Jan 2025 – Jun 2025 · Durgapur, India</div>
+            <p class="res-desc">Developed a deep learning model integrating sensor data from 10+ municipal stations,
+              processing 10,000+ daily data points to capture spatial correlations across a city water-distribution
+              network using Graph Neural Networks.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Projects</h4>
+        </div>
+        <div class="about-proj-list">
+          <div class="about-proj">
+            <div class="about-proj-top">
+              <div class="about-proj-name">When LLM Self-Correction Helps vs Hurts</div>
+              <span class="about-proj-cat">LLM Research</span>
+            </div>
+            <p class="about-proj-desc">A 96 condition empirical study proving prompting based self-correction is net
+              harmful, while self-consistency outperforms it at equal compute. Built two SFT datasets with DeepSeek R1
+              step attribution and LoRA fine-tuning +17.82 pts on GSM8K with Mistral-7B.</p>
+            <div class="about-proj-tech"><span class="tech">PyTorch</span><span class="tech">LoRA</span><span
+                class="tech">DeepSeek-R1</span><span class="tech">Hugging Face</span></div>
+          </div>
+          <div class="about-proj">
+            <div class="about-proj-top">
+              <div class="about-proj-name">Comparative Analysis of QGD on a Continuous TSP</div>
+              <span class="about-proj-cat">Quantum Optimization</span>
+            </div>
+            <p class="about-proj-desc">Demonstrated across 1,000 Monte Carlo trials that Simulated Quantum Gradient
+              Descent outperforms Classical GD by 13+ percentage points in finding the global minimum, isolating
+              gradient estimation quality as the critical factor on non-convex landscapes.</p>
+            <div class="about-proj-tech"><span class="tech">Qiskit</span><span class="tech">Python</span><span
+                class="tech">SciPy · BFGS</span><span class="tech">LaTeX</span></div>
+          </div>
+          <div class="about-proj">
+            <div class="about-proj-top">
+              <div class="about-proj-name">Graph Based Paper Recommender · IUI 2026</div>
+              <span class="about-proj-cat">Graph ML · NLP</span>
+            </div>
+            <p class="about-proj-desc">An intelligent graph-based research paper recommender integrating conversational
+              LLM dialogue with a GraphSAGE model over a citation graph. Users refine vague queries through a 5 question
+              clarification flow; the system jointly considers semantic similarity and citation network structure to
+              surface topically aligned papers.</p>
+            <div class="about-proj-tech"><span class="tech">GraphSAGE</span><span class="tech">LLM</span><span
+                class="tech">Python</span><span class="tech">NLP</span><span class="tech">Graph Neural Network</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /about -->
+
+    <!-- ─────────── WORK ─────────── -->
+    <div class="tab-panel" id="tab-work">
+      <div class="page-head">
+        <h2 class="page-title">Work</h2>
+        <p class="page-sub">Research and projects across quantum computing, LLM reasoning, and graph machine learning.
+        </p>
+      </div>
+
+      <div class="proj-list">
+
+        <div class="proj-item featured">
+          <div class="proj-top">
+            <div><span class="proj-cat">Quantum Computing</span><span class="proj-yr">Mar 2026 – Present</span></div>
+            <span class="proj-arr">↗</span>
+          </div>
+          <h3 class="proj-name">Quantum Circuit Decomposition via Automated Conjectures</h3>
+          <div class="proj-role">Researcher · Advisor: Prof. Andreas Klappenecker, TAMU</div>
+          <p class="proj-desc">Investigating optimal decomposition of controlled unitary gates using TxGraffiti, an
+            automated conjecture tool, to surface mathematical relationships between circuit structure and graph
+            invariants. Exploring connections between graph theory and quantum circuit complexity through automated
+            reasoning, with verified counterexample detection.</p>
+          <div class="proj-tech"><span class="tech">TxGraffiti2</span><span class="tech">Python</span><span
+              class="tech">Qiskit</span><span class="tech">Automated Reasoning</span></div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-top">
+            <div><span class="proj-cat">AI Agent</span><span class="proj-yr">Ongoing 2026</span></div>
+            <span class="proj-arr">↗</span>
+          </div>
+          <h3 class="proj-name">AI Agent for SCGEATool</h3>
+          <div class="proj-role">Researcher · Prof. James Cai, TAMU</div>
+          <p class="proj-desc">Building a conversational AI agent that makes single-cell gene expression analysis
+            accessible through natural language, lowering the barrier for biologists to run complex bioinformatics
+            workflows.</p>
+          <div class="proj-tech"><span class="tech">LLM</span><span class="tech">Bioinformatics</span><span
+              class="tech">Agent Design</span></div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-top">
+            <div><span class="proj-cat">LLM Research</span><span class="proj-yr">Feb 2026 – Apr 2026</span></div>
+            <span class="proj-arr">↗</span>
+          </div>
+          <h3 class="proj-name">When LLM Self-Correction Helps vs Hurts</h3>
+          <div class="proj-role">Lead Research Author · Academic Project</div>
+          <p class="proj-desc">Conducted a 96-condition empirical study proving that prompting-based self-correction is
+            net harmful, while self-consistency outperforms it at equal compute. Built two novel SFT datasets with
+            DeepSeek-R1 step attribution and LoRA fine-tuning, gaining +17.82 pts on GSM8K with Mistral-7B.</p>
+          <div class="proj-stats">
+            <span><strong>71,595</strong> pairs</span><span class="dot">·</span>
+            <span><strong>96</strong> conditions</span><span class="dot">·</span>
+            <span><strong>3.4×</strong> damage ratio</span><span class="dot">·</span>
+            <span><strong>+17.82</strong> pt GSM8K</span>
+          </div>
+          <div class="proj-tech"><span class="tech">PyTorch</span><span class="tech">LoRA</span><span
+              class="tech">DeepSeek-R1</span><span class="tech">Hugging Face</span></div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-top">
+            <div><span class="proj-cat">Quantum Optimization</span><span class="proj-yr">Feb 2026 – Present</span></div>
+            <span class="proj-arr">↗</span>
+          </div>
+          <h3 class="proj-name">Comparative Analysis of QGD on a Continuous TSP</h3>
+          <div class="proj-role">Independent Research</div>
+          <p class="proj-desc">Demonstrated across 1,000 Monte Carlo trials that Simulated Quantum Gradient Descent
+            outperforms Classical Gradient Descent by 13+ percentage points in finding the global minimum, isolating
+            gradient-estimation quality as the critical factor on non-convex landscapes.</p>
+          <div class="proj-stats">
+            <span><strong>1,000</strong> Monte Carlo trials</span><span class="dot">·</span>
+            <span><strong>+13 pp</strong> over classical GD</span>
+          </div>
+          <div class="proj-tech"><span class="tech">Qiskit</span><span class="tech">Python</span><span
+              class="tech">SciPy · BFGS</span><span class="tech">LaTeX</span></div>
+        </div>
+
+        <div class="proj-item">
+          <div class="proj-top">
+            <div><span class="proj-cat">Graph ML</span><span class="proj-yr">Jan 2025 – Jun 2025</span></div>
+            <span class="proj-arr">↗</span>
+          </div>
+          <h3 class="proj-name">GNN for Granular Visualization of Water Distribution</h3>
+          <div class="proj-role">Research Assistant · Advisor: Prof. Suchismita Roy, NIT Durgapur</div>
+          <p class="proj-desc">Developed a deep learning model integrating sensor data from 10+ municipal stations,
+            processing 10,000+ daily data points to capture spatial correlations across a city water-distribution
+            network.</p>
+          <div class="proj-tech"><span class="tech">PyTorch Geometric</span><span class="tech">GNN</span><span
+              class="tech">Sensor Data</span></div>
+        </div>
+
+      </div>
+
+      <div class="saber-divider"><span class="saber-blade left"></span><span class="saber-hilt"></span><span class="saber-blade right"></span></div>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Leadership</h4>
+        </div>
+        <div class="two-col">
+          <div class="ie">
+            <div class="ie-school">Sponsorship Head — ISTE, NIT Durgapur</div>
+            <div class="ie-deg">Secured $4,500 in sponsorship funding</div>
+            <div class="ie-note">Apr 2023 – May 2024 · grew chapter LinkedIn following to 4K</div>
+          </div>
+          <div class="ie">
+            <div class="ie-school">Class Representative — NIT Durgapur</div>
+            <div class="ie-deg">Primary liaison between faculty and students</div>
+            <div class="ie-note">Apr 2022 – May 2024 · cohort of 190+ students</div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /work -->
+
+    <!-- ─────────── BLOG ─────────── -->
+    <div class="tab-panel" id="tab-blog">
+      <div class="page-head">
+        <h2 class="page-title">Blog</h2>
+        <p class="page-sub">Notes on what's moving in computer science — quantum computing, security, and large language
+          models.</p>
+      </div>
+
+      <div class="blog-toolbar">
+        <div class="blog-filter">
+          <span class="blog-pill active" data-cat="all">All</span>
+          <span class="blog-pill" data-cat="quantum">Quantum</span>
+          <span class="blog-pill" data-cat="security">Security</span>
+          <span class="blog-pill" data-cat="llms">LLMs</span>
+        </div>
+        <button class="add-btn" id="add-post-btn">+ New post</button>
+      </div>
+
+      <div class="blog-list" id="blog-list">
+        <article class="blog-post" data-cat="llms">
+          <div class="bp-meta"><span class="bp-cat llms">LLMs</span><span class="bp-date">14 May 2026</span></div>
+          <h3 class="bp-title" contenteditable="true">When self-correction backfires — notes from my own study</h3>
+          <p class="bp-excerpt" contenteditable="true">A short write-up of why prompting an LLM to "check its work" can
+            degrade accuracy, and when self-consistency is the better tool. Click to edit this post.</p>
+        </article>
+        <article class="blog-post" data-cat="quantum">
+          <div class="bp-meta"><span class="bp-cat quantum">Quantum</span><span class="bp-date">02 May 2026</span></div>
+          <h3 class="bp-title" contenteditable="true">Variational quantum algorithms in 2026: where they actually stand
+          </h3>
+          <p class="bp-excerpt" contenteditable="true">VQE and QAOA on real hardware versus classical simulators — a
+            grad student's read on what's promising and what's hype.</p>
+        </article>
+        <article class="blog-post" data-cat="security">
+          <div class="bp-meta"><span class="bp-cat security">Security</span><span class="bp-date">21 Apr 2026</span>
+          </div>
+          <h3 class="bp-title" contenteditable="true">Post-quantum cryptography: the NIST standards and what they mean
+          </h3>
+          <p class="bp-excerpt" contenteditable="true">A plain-language tour of the finalized PQC algorithms and why
+            migration is already overdue for long-lived data.</p>
+        </article>
+        <article class="blog-post" data-cat="llms">
+          <div class="bp-meta"><span class="bp-cat llms">LLMs</span><span class="bp-date">08 Apr 2026</span></div>
+          <h3 class="bp-title" contenteditable="true">Reasoning models and the ceiling of chain-of-thought</h3>
+          <p class="bp-excerpt" contenteditable="true">Longer reasoning chains don't always help. New benchmarks suggest
+            a real ceiling — here's what that means for agents.</p>
+        </article>
+        <article class="blog-post" data-cat="security">
+          <div class="bp-meta"><span class="bp-cat security">Security</span><span class="bp-date">30 Mar 2026</span>
+          </div>
+          <h3 class="bp-title" contenteditable="true">Prompt injection is still the hardest LLM security problem</h3>
+          <p class="bp-excerpt" contenteditable="true">Why tool-using agents widen the attack surface, and the partial
+            defenses that actually hold up in practice.</p>
+        </article>
+        <article class="blog-post" data-cat="quantum">
+          <div class="bp-meta"><span class="bp-cat quantum">Quantum</span><span class="bp-date">12 Mar 2026</span></div>
+          <h3 class="bp-title" contenteditable="true">Automated conjecture-making with TxGraffiti</h3>
+          <p class="bp-excerpt" contenteditable="true">How an automated reasoning tool proposes graph-theory conjectures
+            — and how it ties into quantum circuit complexity.</p>
+        </article>
+      </div>
+
+      <div class="saber-divider"><span class="saber-blade left"></span><span class="saber-hilt"></span><span class="saber-blade right"></span></div>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Reading Insights</h4>
+        </div>
+        <div class="reading-list">
+          <div class="read-item">
+            <div class="read-book" contenteditable="true">Attention Is All You Need</div>
+            <div class="read-note" contenteditable="true">Re-read it every few months — still the cleanest mental model for why transformers scale.</div>
+          </div>
+          <div class="read-item">
+            <div class="read-book" contenteditable="true">Quantum Computation and Quantum Information — Nielsen &amp; Chuang</div>
+            <div class="read-note" contenteditable="true">The reference I keep returning to for circuit decomposition intuition.</div>
+          </div>
+          <div class="read-item">
+            <div class="read-book" contenteditable="true">GraphSAGE — Inductive Representation Learning</div>
+            <div class="read-note" contenteditable="true">Shaped how I thought about the water-distribution GNN. Sampling beats full-graph training at scale.</div>
+          </div>
+        </div>
+      </section>
+    </div><!-- /blog -->
+
+    <!-- ─────────── PERSONAL ─────────── -->
+    <div class="tab-panel" id="tab-personal">
+      <div class="page-head">
+        <h2 class="page-title">Personal</h2>
+        <p class="page-sub">Life around the research — field trips, college moments, and community.</p>
+      </div>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Gallery &amp; Field Trips</h4>
+        </div>
+      </section>
+      <div class="adv-masonry" id="adventures-grid">
+        <div class="adv-item">
+          <div class="adv-photo" style="height:220px">
+            <img src="tamuset.jpg" alt="TAMU Sun Set" style="width:100%;height:100%;object-fit:cover;"/>
+            <div class="adv-ph"><p>TAMU / college moment</p></div>
+          </div>
+          <div class="adv-body">
+            <h4 contenteditable="true">TAMU</h4>
+            <p contenteditable="true">Inauguration day</p>
+            <div class="adv-loc">📍 <span contenteditable="true">College Station, TX</span></div>
+          </div><input type="file" accept="image/*" style="display:none" />
+        </div>
+        <div class="adv-item">
+          <div class="adv-photo" style="height:220px">
+            <img src="cybertrip2.jpg" alt="TAMU" style="width:100%;height:100%;object-fit:cover;"/>
+            <div class="adv-ph"><p>A field trip</p></div>
+          </div>
+          <div class="adv-body">
+            <h4 contenteditable="true">CyberSecurity Field Trip</h4>
+            <p contenteditable="true"></p>
+            <div class="adv-loc">📍 <span contenteditable="true">Houston, TX</span></div>
+          </div><input type="file" accept="image/*" style="display:none" />
+        </div>
+        <div class="adv-item">
+          <div class="adv-photo" style="height:220px">
+            <img src="cybertrip1.jpg" alt="DeepSeek Demo" style="width:100%;height:100%;object-fit:cover;"/>
+            <div class="adv-ph"><p></p></div>
+          </div>
+          <div class="adv-body">
+            <h4 contenteditable="true">DeepSeek Demo</h4>
+            <p contenteditable="true"></p>
+            <div class="adv-loc">📍 <span contenteditable="true">Studio / Dorm</span></div>
+          </div><input type="file" accept="image/*" style="display:none" />
+        </div>
+        <div class="adv-item">
+          <div class="adv-photo" style="height:220px">
+            <img src="cyberposter.jpg" alt="NIT Durgapur Poster Presentation" style="width:100%;height:100%;object-fit:cover;"/>
+            <div class="adv-ph"><p></p></div>
+          </div>
+          <div class="adv-body">
+            <h4 contenteditable="true">SRW Poster Presentation</h4>
+            <p contenteditable="true"></p>
+            <div class="adv-loc">📍 <span contenteditable="true">College Station, TX</span></div>
+          </div><input type="file" accept="image/*" style="display:none" />
+        </div>
+        <div class="adv-item">
+          <div class="adv-photo" style="height:220px">
+            <img src="potluckcse.webp" alt="TAMU Potluck" style="width:100%;height:100%;object-fit:cover;"/>
+
+            <div class="adv-ph"><p>Travel / nature</p></div>
+          </div>
+          <div class="adv-body">
+            <h4 contenteditable="true">CSE Potluck</h4>
+            <p contenteditable="true"></p>
+          </div><input type="file" accept="image/*" style="display:none" />
+        </div>
+
+        
+      </div>
+      <div style="padding:1.25rem 3.25rem 0">
+        
+      </div>
+
+      <div class="saber-divider"><span class="saber-blade left"></span><span class="saber-hilt"></span><span class="saber-blade right"></span></div>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">College &amp; Community</h4>
+        </div>
+        <div class="two-col">
+          <div class="mini-card">
+            <div class="mini-title">ISTE — NIT Durgapur</div>
+            <p>Served as Sponsorship Head for the Indian Society for Technical Education chapter, securing $4,500 in
+              funding and growing the community to a 4K LinkedIn following.</p>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title">Class Representative</div>
+            <p>Acted as the primary liaison between faculty and a cohort of 190+ students across two academic years at
+              NIT Durgapur.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="saber-divider"><span class="saber-blade left"></span><span class="saber-hilt"></span><span class="saber-blade right"></span></div>
+
+      <section class="panel-sec">
+        <div class="sec-head sm"><span class="sec-mark"><svg class="mask-ico" aria-hidden="true"><use href="#ico-mask"/></svg></span>
+          <h4 class="psub">Beyond the Terminal</h4>
+        </div>
+        <p>Outside research, I sing with the university choir, experiment in the kitchen, and sketch. For recipes, music moments, and everything off-the-clock, visit my personal space.</p>
+        <div style="margin-top: 1rem;">
+          <a class="inline-link" data-goto="personal" href="#">Personal Life &amp; Hobbies <span>&#8599;</span></a>
+        </div>
+      </section>
+
+    </div><!-- /personal -->
+
+    <!-- ─────────── CONTACT ─────────── -->
+    <div class="tab-panel" id="tab-contact">
+      <div class="page-head">
+        <h2 class="page-title">Let&rsquo;s Chat</h2>
+        <p class="page-sub">Open to research collaborations, internships, and a good conversation about quantum or LLMs.
+        </p>
+      </div>
+
+      <section class="panel-sec">
+        <div class="chat-layout">
+          <!-- contact form -->
+          <div class="chat-form">
+            <div class="cf-row">
+              <input type="text" class="cf-input" id="cf-name" placeholder="Name" autocomplete="name"/>
+              <input type="email" class="cf-input" id="cf-email" placeholder="Email" autocomplete="email"/>
+            </div>
+            <input type="text" class="cf-input" id="cf-subject" placeholder="Subject"/>
+            <textarea class="cf-input cf-textarea" id="cf-message" placeholder="Message" rows="6"></textarea>
+            <button class="cf-send" id="cf-send">Send</button>
+            <p class="cf-note" id="cf-note"></p>
+          </div>
+
+          <!-- contact details rail -->
+          <aside class="chat-rail">
+            <div class="rail-card">
+              <div class="rail-label">Email</div>
+              <a class="rail-value" href="mailto:samk13@tamu.edu">samk13@tamu.edu</a>
+            </div>
+            <div class="rail-card">
+              <div class="rail-label">Phone</div>
+              <a class="rail-value" href="tel:+19793260509">(979) 326-0509</a>
+            </div>
+            <div class="rail-card">
+              <div class="rail-label">Location</div>
+              <span class="rail-value">College Station, TX 77840</span>
+            </div>
+            <div class="rail-socials">
+              <a href="https://www.linkedin.com/in/samhitha-kondeti/" class="rail-social">LinkedIn <span>&#8599;</span></a>
+              <a href="https://github.com/Freakelle" class="rail-social">GitHub <span>&#8599;</span></a>
+              <a href="https://www.instagram.com/samhithak_13" class="rail-social">Instagram <span>&#8599;</span></a>
+              <a href="https://x.com/sweety_CSnews13" class="rail-social">X / Twitter <span>&#8599;</span></a>
+              <a href="https://orcid.org/0009-0003-7549-1035" class="rail-social">ORCID <span>&#8599;</span></a>
+              <a href="SamhithaResume_26.pdf" target="_blank" class="rail-social">Résumé / CV <span>&#8599;</span></a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div><!-- /contact -->
+
+  </main>
+
+  <div id="lightbox"><button id="lightbox-close">✕</button><img id="lightbox-img" src="" alt="" /></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
