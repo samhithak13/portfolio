@@ -247,7 +247,7 @@ document.querySelectorAll('.s-slot').forEach(slot => {
     // open the user's mail client pre-filled
     const subj = encodeURIComponent((subject.value || 'Hello from your site').trim());
     const body = encodeURIComponent('From: ' + n + ' (' + e + ')\n\n' + m);
-    window.location.href = 'mailto:samk13@tamu.edu?subject=' + subj + '&body=' + body;
+    window.location.href = 'mailto:samk_13@tamu.edu?subject=' + subj + '&body=' + body;
     note.textContent = '// opening your mail app...';
     note.style.color = 'var(--accent)';
   });
